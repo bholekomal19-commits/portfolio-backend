@@ -1,0 +1,31 @@
+<%@ include file="header.jsp" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.tka.Entity.Product" %>
+
+<h2 style="text-align:center;">Products</h2>
+
+<div class="products">
+
+<%
+List<Product> products = (List<Product>) request.getAttribute("products");
+
+if(products != null){
+    for(Product p : products){
+%>
+
+<div class="card">
+    <h3><%=p.getName()%></h3>
+    <p>₹ <%=p.getPrice()%></p>
+
+    <!-- ✅ FIXED URL -->
+    <a href="/addToCart/<%=p.getId()%>" class="btn">Add to Cart</a>
+</div>
+
+<%
+    }
+}
+%>
+
+</div>
+
+<%@ include file="footer.jsp" %>

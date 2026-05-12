@@ -1,0 +1,24 @@
+<%@ include file="header.jsp" %>
+<%@ page import="com.tka.Entity.Customer" %>
+
+<h2 style="text-align:center;">Profile</h2>
+
+<%
+Customer c = (Customer) session.getAttribute("customer");
+if(c != null){
+%>
+
+<p style="text-align:center;">Name: <%=c.getName()%></p>
+<p style="text-align:center;">Email: <%=c.getEmail()%></p>
+
+<%
+} else {
+%>
+
+<p style="text-align:center;">Please login first</p>
+
+<%
+}
+%>
+
+<%@ include file="footer.jsp" %>

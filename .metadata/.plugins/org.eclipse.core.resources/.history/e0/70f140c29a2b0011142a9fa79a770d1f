@@ -1,0 +1,48 @@
+package com.tka.Controller;
+
+import com.tka.Dao.CustomerDao;
+import com.tka.Entity.Customer;
+import com.tka.Entity.Product;
+import com.tka.Service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+    @Controller
+    @RequestMapping("/products")
+    public class ProductController {
+    	 @Autowired
+    	    private ProductService productService;
+
+
+     @GetMapping("/")
+        public String showProducts(Model model) {
+            model.addAttribute("products", productService.getAllProducts());
+            return "product";   
+        }
+
+    @GetMapping("/addProduct")
+    public String addProductPage() 
+    {
+        return "Product";
+    }
+
+    @PostMapping("/save")
+    public String saveProduct(@ModelAttribute Product product)
+    {
+        productService.addProduct(product);
+        return "redirect:/products/";
+    }
+    @GetMapping("/register")
+    public String registerPage() {
+        return "register";
+    }
+
+    @PostMapping("/register")
+    public String register(Customer customer) {
+        CustomerDao customerDao = new CustomerDao();
+		customerDao.save(customer);
+        return "redirect:/login";
+    }
+}

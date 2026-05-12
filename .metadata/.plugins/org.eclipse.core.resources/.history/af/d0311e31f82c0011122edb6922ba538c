@@ -1,0 +1,12 @@
+<%@ include file="header.jsp" %>
+
+<h2 style="text-align:center;">Profile</h2>
+
+<p style="text-align:center;">Name: ${customer.name}</p>
+<p style="text-align:center;">Email: ${customer.email}</p>
+
+<div style="text-align:center;">
+    <a href="/products/">Go to Products</a>
+</div>
+
+<%@ include file="footer.jsp" %>

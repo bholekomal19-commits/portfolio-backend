@@ -1,0 +1,19 @@
+package com.tka.Service;
+
+import com.tka.Entity.Customer;
+import java.util.List;
+
+public interface CustomerService {
+
+    void addCustomer(Customer customer);
+
+    List<Customer> getAllCustomers();
+
+    Customer getCustomerById(int id);
+
+    void deleteCustomer(int id);
+
+    Customer login(String email, String password); // ✅ added
+
+	void save(Customer customer);
+}

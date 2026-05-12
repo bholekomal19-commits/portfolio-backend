@@ -1,0 +1,53 @@
+package com.tka.Controller;
+
+import com.tka.Entity.Customer;
+import com.tka.Service.OrderService;
+
+import jakarta.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+@Controller
+public class OrderController {
+
+    @Autowired
+    private OrderService orderService;
+
+    // ================== VIEW ORDERS ==================
+    @GetMapping("/orders")
+    public String showOrders(Model model, HttpSession session) {
+
+        Customer c = (Customer) session.getAttribute("customer");
+
+        if (c == null) {
+            return "redirect:/login";
+        }
+
+        model.addAttribute("orders",
+                orderService.getOrdersByCustomerId(c.getId()));
+
+        return "order";
+    }
+
+    // ================== PLACE ORDER ==================
+    @GetMapping("/placeOrder")
+    public String placeOrder(HttpSession session) {
+
+        Customer c = (Customer) session.getAttribute("customer");
+
+        if (c == null) {
+            return "redirect:/login";
+        }
+
+        boolean isPlaced = orderService.placeOrder(c.getId());
+
+        if (!isPlaced) {
+            return "redirect:/viewCart";
+        }
+
+        return "redirect:/orders";
+    }
+}

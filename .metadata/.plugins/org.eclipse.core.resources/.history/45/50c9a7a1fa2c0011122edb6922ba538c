@@ -1,0 +1,71 @@
+package com.tka.Service;
+
+import com.tka.Dao.CartDao;
+import com.tka.Dao.ProductDao;
+import com.tka.Dao.CustomerDao;
+import com.tka.Entity.Cart;
+import com.tka.Entity.Product;
+import com.tka.Entity.Customer;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class CartServiceImpl implements CartService {
+
+    @Autowired
+    private CartDao cartDao;
+
+    @Autowired
+    private ProductDao productDao;
+
+    @Autowired
+    private CustomerDao customerDao;
+
+    @Override
+    public void addToCart(int productId, int customerId) {
+
+        Product product = productDao.findById(productId);
+        Customer customer = customerDao.findById(customerId);
+
+        if (product == null || customer == null) return;
+
+        Cart customerCart = cartDao.getCartByCustomerId(customerId);
+
+        if (customerCart == null) {
+            customerCart = new Cart();
+            customerCart.setCustomer(customer);
+
+            List<Product> products = new ArrayList<>();
+            products.add(product);
+
+            customerCart.setProducts(products);
+
+        } else {
+            if (customerCart.getProducts() == null) {
+                customerCart.setProducts(new ArrayList<>());
+            }
+            customerCart.getProducts().add(product);
+        }
+
+        cartDao.save(customerCart);
+    }
+
+    @Override
+    public List<Cart> getAllCarts() {
+        return cartDao.getAllCarts();
+    }
+
+    @Override
+    public Cart getCartById(int id) {
+        return cartDao.findById(id);
+    }
+
+    @Override
+    public void deleteCart(int id) {
+        cartDao.delete(id);
+    }
+}

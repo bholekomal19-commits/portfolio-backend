@@ -1,0 +1,9 @@
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+
+<footer>
+    <div class="footer">
+        <hr>
+        <p>&copy; 2026 AMZ 421. All Rights Reserved.</p>
+        <p>Developed by AMZ Team</p>
+    </div>
+</footer>

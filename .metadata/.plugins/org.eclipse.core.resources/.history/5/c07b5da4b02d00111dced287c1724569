@@ -1,0 +1,102 @@
+package com.tka.Controller;
+
+import com.tka.Entity.Customer;
+import com.tka.Service.CustomerService;
+
+import jakarta.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+@Controller
+public class CustomerController {
+
+    @Autowired
+    private CustomerService customerService;
+
+    // ================== HOME ==================
+    @GetMapping("/")
+    public String home(HttpSession session) {
+
+        Customer c = (Customer) session.getAttribute("customer");
+
+        if (c != null) {
+            return "redirect:/products/";
+        }
+
+        return "index";   // make sure index.jsp exists
+    }
+
+    // ================== LOGIN PAGE ==================
+    @GetMapping("/login")
+    public String loginPage() {
+        return "login";
+    }
+
+    // ================== LOGIN LOGIC ==================
+    @PostMapping("/login")
+    public String login(@RequestParam String email,
+                        @RequestParam String password,
+                        HttpSession session,
+                        Model model) {
+
+        Customer c = customerService.login(email, password);
+
+        if (c != null) {
+            session.setAttribute("customer", c);
+            return "redirect:/products/";
+        } else {
+            model.addAttribute("error", "Invalid Credentials");
+            return "login";
+        }
+    }
+
+    // ================== REGISTER PAGE ==================
+    @GetMapping("/register")
+    public String registerPage() {
+        return "register";
+    }
+
+    // ================== REGISTER LOGIC ==================
+    @PostMapping("/register")
+    public String register(@ModelAttribute Customer customer) {
+
+        customerService.save(customer);
+
+        return "redirect:/login";
+    }
+
+    // ================== PROFILE ==================
+    @GetMapping("/profile")
+    public String profile(HttpSession session, Model model) {
+
+        Customer c = (Customer) session.getAttribute("customer");
+
+        if (c == null) {
+            return "redirect:/login";
+        }
+
+        model.addAttribute("customer", c);
+
+        return "profile";
+    }
+
+    // ================== LOGOUT ==================
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+
+        session.invalidate();
+
+        return "redirect:/login";
+    }
+    
+    
+
+    // ================== ERROR PAGE ==================
+    @GetMapping("/error")
+    public String errorPage() {
+        return "error";   // create error.jsp
+    }
+}

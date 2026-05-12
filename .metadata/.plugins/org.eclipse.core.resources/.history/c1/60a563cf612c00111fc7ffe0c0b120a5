@@ -1,0 +1,54 @@
+package com.tka.Controller;
+
+import com.tka.Entity.Customer;
+import com.tka.Entity.Product;
+import com.tka.Service.ProductService;
+import com.tka.Service.CustomerService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+@Controller
+@RequestMapping("/product")
+public class ProductController {
+
+    @Autowired
+    private ProductService productService;
+
+    @Autowired
+    private CustomerService customerService; // ✅ FIXED
+
+    @GetMapping("/")
+    public String showProducts(Model model) {
+        System.out.println("Products API called"); // DEBUG
+
+        model.addAttribute("products", productService.getAllProducts());
+        return "product";
+    }
+    
+    
+    @GetMapping("/addProduct")
+    public String addProductPage() {
+        return "addProduct";
+    }
+
+    @PostMapping("/save")
+    public String saveProduct(@ModelAttribute Product product) {
+        productService.addProduct(product);
+        return "redirect:/products/";
+    }
+
+    // ✅ REGISTER FIXED
+    @GetMapping("/register")
+    public String registerPage() {
+        return "register";
+    }
+
+    @PostMapping("/register")
+    public String register(@ModelAttribute Customer customer) {
+        customerService.addCustomer(customer); // ✅ FIXED
+        return "redirect:/login";
+    }
+}

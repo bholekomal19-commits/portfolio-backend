@@ -1,0 +1,45 @@
+<%@ include file="header.jsp" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.tka.Entity.Order" %>
+<%@ page import="com.tka.Entity.Product" %>
+
+<h2 style="text-align:center;">My Orders</h2>
+
+<table border="1" width="70%" align="center">
+
+<tr>
+<th>Products</th>
+<th>Total Amount</th>
+</tr>
+
+<%
+List<Order> orders = (List<Order>) request.getAttribute("orders");
+
+if(orders != null){
+    for(Order o : orders){
+%>
+
+<tr align="center">
+<td>
+<%
+    if(o.getProducts() != null){
+        for(Product p : o.getProducts()){
+%>
+    <%= p.getName() %> (₹ <%= p.getPrice() %>) <br>
+<%
+        }
+    }
+%>
+</td>
+
+<td>₹ <%= o.getTotalAmount() %></td>
+</tr>
+
+<%
+    }
+}
+%>
+
+</table>
+
+<%@ include file="footer.jsp" %>

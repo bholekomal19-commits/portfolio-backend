@@ -1,0 +1,125 @@
+/* Reset Default */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Body */
+body {
+    background-color: #f3f3f3;
+}
+
+/* ================= HEADER ================= */
+
+.header {
+    background-color: #131921;
+    color: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    color: #ff9900;
+}
+
+/* Navigation */
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: #ff9900;
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.container h1 {
+    font-size: 40px;
+    color: #131921;
+}
+
+.container p {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #555;
+}
+
+/* ================= FORM ================= */
+
+form {
+    width: 350px;
+    background: white;
+    padding: 25px;
+    margin: 50px auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Buttons */
+form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff9900;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+form input[type="submit"]:hover {
+    background-color: #e68a00;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #ff9900;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+    background-color: #131921;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 100px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

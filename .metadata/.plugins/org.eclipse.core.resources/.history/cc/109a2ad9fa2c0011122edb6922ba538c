@@ -1,0 +1,13 @@
+package com.tka.Service;
+
+import com.tka.Entity.Order;
+import java.util.List;
+
+public interface OrderService {
+
+    boolean placeOrder(int customerId);
+
+    List<Order> getAllOrders();
+
+	Object getOrdersByCustomerId(int id);
+}

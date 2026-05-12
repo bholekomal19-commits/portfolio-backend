@@ -1,0 +1,16 @@
+<%@ include file="header.jsp" %>
+
+<h2 style="text-align:center;">Logout</h2>
+
+<div style="text-align:center; margin-top:20px;">
+    <p>Are you sure you want to logout?</p>
+
+    <form action="/logout" method="get">
+        <button type="submit" style="padding:10px 20px;">Logout</button>
+    </form>
+
+    <br>
+    <a href="/products/">Cancel</a>
+</div>
+
+<%@ include file="footer.jsp" %>

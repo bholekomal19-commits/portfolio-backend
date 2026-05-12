@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/css/style.css">
+<hr>
+
+<div style="text-align:center; padding:15px; background:#f2f2f2; margin-top:20px;">
+    
+    <p>© 2026 Amazon Clone | All Rights Reserved</p>
+    
+    <p>
+        <a href="/">Home</a> |
+        <a href="/products">Products</a> |
+        <a href="/cart">Cart</a> |
+        <a href="/orders">Orders</a>
+    </p>
+
+    <p style="font-size:12px; color:gray;">
+        Designed by Komal Bhole
+    </p>
+
+</div>

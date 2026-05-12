@@ -1,0 +1,12 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amazon.in</title>
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1 align="center">Welcome to Amazon Mini Project</h1>
+       <a href="/products"><button>View Products</button></a>
+</body>
+</html>

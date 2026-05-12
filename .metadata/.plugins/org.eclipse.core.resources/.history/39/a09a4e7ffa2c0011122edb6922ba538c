@@ -1,0 +1,15 @@
+package com.tka.Service;
+
+import com.tka.Entity.Cart;
+import java.util.List;
+
+public interface CartService {
+
+    void addToCart(int productId, int customerId);
+
+    List<Cart> getAllCarts();
+
+    Cart getCartById(int id);
+
+    void deleteCart(int id);
+}

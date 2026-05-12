@@ -1,0 +1,14 @@
+package com.tka;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class amz422Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(amz422Application.class, args);
+		System.err.println("Amazon App Started........");
+	}
+
+}

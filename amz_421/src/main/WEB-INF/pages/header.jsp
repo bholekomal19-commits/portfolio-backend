@@ -1,0 +1,14 @@
+<header>
+	<div class="header">
+	<h1>AMZ</h1>
+<div class="nav">
+	<a href="/">Home</a>
+	<a href="/login">Login</a>
+	<a href="#">Profile</a>
+	<a href="#">Products</a>
+	<a href="#">Shopping</a>
+	<a href="#">Card</a>
+	<a href="#">Logout</a>
+</div>
+</div>
+</header>

@@ -1,0 +1,36 @@
+package com.tka.Dao;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.tka.Entity.Order;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+
+@Repository
+public class OrderDao {
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    public void save(Order order) {
+        entityManager.persist(order);
+    }
+
+    public List<Order> getAllOrders() {
+        return entityManager
+                .createQuery("from Order", Order.class)
+                .getResultList();
+    }
+
+    public Order findById(int id) {
+        return entityManager.find(Order.class, id);
+    }
+
+    public void delete(int id) {
+        Order o = entityManager.find(Order.class, id);
+        if (o != null) entityManager.remove(o);
+    }
+}

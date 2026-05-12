@@ -1,0 +1,54 @@
+<%@ include file="header.jsp" %>
+<%@ page import="com.tka.Entity.Cart" %>
+<%@ page import="com.tka.Entity.Product" %>
+<%@ page import="java.util.List" %>
+
+<h2 style="text-align:center;">Your Bill</h2>
+
+<%
+Cart cart = (Cart) request.getAttribute("cart");
+
+if(cart != null && cart.getProducts() != null){
+    List<Product> products = cart.getProducts();
+    double total = 0;
+%>
+
+<table border="1" align="center">
+<tr>
+    <th>Name</th>
+    <th>Price</th>
+</tr>
+
+<%
+for(Product p : product){
+    total += p.getPrice();
+%>
+
+<tr>
+    <td><%=p.getName()%></td>
+    <td>₹ <%=p.getPrice()%></td>
+</tr>
+
+<%
+}
+%>
+
+</table>
+
+<h3 style="text-align:center;">Total: ₹ <%= total %></h3>
+
+<div style="text-align:center;">
+    <a href="/placeOrder">Place Order</a>
+</div>
+
+<%
+} else {
+%>
+
+<p style="text-align:center;">Cart is empty</p>
+
+<%
+}
+%>
+
+<%@ include file="footer.jsp" %>

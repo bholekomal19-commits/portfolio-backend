@@ -1,0 +1,36 @@
+package com.tka.Controller;
+
+import com.tka.Service.CartService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+@Controller
+public class CartController {
+
+    @Autowired
+    private CartService cartService;
+
+    @GetMapping("/cart")
+    public String viewCart(Model model) {
+        model.addAttribute("cartItems", cartService.getAllCarts());
+        return "Cart";
+    }
+
+    @GetMapping("/addToCart/{id}")
+    public String addToCart(@PathVariable int id) {
+
+        int customerId = 1; // temporary (later use login user)
+
+        cartService.addToCart(id, customerId);
+
+        return "redirect:/cart";
+    }
+
+    @GetMapping("/deleteCart/{id}")
+    public String deleteCart(@PathVariable int id) {
+        cartService.deleteCart(id);
+        return "redirect:/cart";
+    }
+}

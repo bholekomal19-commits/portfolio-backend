@@ -1,0 +1,40 @@
+package com.tka.Dao;
+
+import org.springframework.stereotype.Repository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import java.util.List;
+
+import com.tka.Entity.Cart;
+
+@Repository
+public class CartDao {
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    // Save Cart
+    public void save(Cart cart) {
+        entityManager.persist(cart);
+    }
+
+    // Get All Carts
+    public List<Cart> getAllCarts() {
+        return entityManager
+                .createQuery("from Cart", Cart.class)
+                .getResultList();
+    }
+
+    // Find by ID
+    public Cart findById(int id) {
+        return entityManager.find(Cart.class, id);
+    }
+
+    // Delete
+    public void delete(int id) {
+        Cart c = entityManager.find(Cart.class, id);
+        if (c != null) {
+            entityManager.remove(c);
+        }
+    }
+}

@@ -1,0 +1,50 @@
+package com.tka.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.tka.Dao.CustomerDao;
+import com.tka.Entity.Customer;
+
+import java.util.List;
+
+@Service
+@Transactional
+public class CustomerServiceImpl implements CustomerService {
+
+    @Autowired
+    private CustomerDao customerDao;
+
+    @Override
+    public void addCustomer(Customer customer) {
+        customerDao.save(customer);
+    }
+
+    @Override
+    public List<Customer> getAllCustomers() {
+        return customerDao.getAllCustomers();
+    }
+
+    @Override
+    public Customer getCustomerById(int id) {
+        return customerDao.findById(id);
+    }
+
+    @Override
+    public void deleteCustomer(int id) {
+        customerDao.delete(id);
+    }
+
+    // ✅ LOGIN LOGIC (BEST PRACTICE)
+    @Override
+    public Customer login(String email, String password) {
+
+        Customer c = customerDao.findByEmail(email);
+
+        if (c != null && password.equals(c.getPassword())) {
+            return c;
+        }
+        return null;
+    }
+}

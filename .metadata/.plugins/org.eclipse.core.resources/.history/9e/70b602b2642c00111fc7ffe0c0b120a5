@@ -1,0 +1,11 @@
+package com.tka.Service;
+
+import com.tka.Entity.Order;
+import java.util.List;
+
+public interface OrderService {
+
+    void placeOrder(int customerId);
+
+    List<Order> getAllOrders();
+}
