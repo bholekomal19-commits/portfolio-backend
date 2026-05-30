@@ -21,6 +21,16 @@
 		<item key="sortItemState" value="true"/>
 	</section>
 	<section name="GitCommitMessageComponent">
+		<list key="C:\Users\bhole\Documents\workspace-ADV-project_422\Amazon_Project\.git">
+			<item value="false"/>
+			<item value="bholekomal19-commits &lt;bholekomal19@gmail.com&gt;"/>
+			<item value="update project"/>
+			<item value="bholekomal19-commits &lt;bholekomal19@gmail.com&gt;"/>
+			<item value="0066c20168db8cbe52786a9524f47bddc30ced1c"/>
+			<item value="0"/>
+			<item value="false"/>
+			<item value=""/>
+		</list>
 	</section>
 	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
 		<item key="DIALOG_X_ORIGIN" value="442"/>
