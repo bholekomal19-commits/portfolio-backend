@@ -228,88 +228,133 @@ I enjoy building responsive web applications and improving my technical skills t
 <!-- Skills -->
 
 <section id="skills">
+    <h2>My Skills</h2>
 
-<h1>Skills</h1>
+    <button onclick="showSkill('java')">Java</button>
+    <button onclick="showSkill('spring')">Spring Boot</button>
+    <button onclick="showSkill('hibernate')">Hibernate</button>
+    <button onclick="showSkill('mysql')">MySQL</button>
+    <button onclick="showSkill('html')">HTML & CSS</button>
+    <button onclick="showSkill('js')">JavaScript</button>
+    <button onclick="showSkill('react')">React</button>
+    <button onclick="showSkill('git')">Git & GitHub</button>
 
-<div class="skill-box" onclick="toggleSkill('java')">Java</div>
-<div id="java" class="skill-detail">
-OOP Concepts, Collections, Exception Handling, Multithreading, File Handling, Streams API
-</div>
-
-<div class="skill-box" onclick="toggleSkill('spring')">Spring Boot</div>
-<div id="spring" class="skill-detail">
-REST API, MVC, Dependency Injection, Spring Data JPA, CRUD Operations, Security Basics
-</div>
-
-<div class="skill-box" onclick="toggleSkill('hibernate')">Hibernate</div>
-<div id="hibernate" class="skill-detail">
-ORM Concept, Entity Mapping, HQL, CRUD Operations, OneToMany, ManyToOne Relationships
-</div>
-
-<div class="skill-box" onclick="toggleSkill('mysql')">MySQL</div>
-<div id="mysql" class="skill-detail">
-Tables, Joins, Queries, Stored Procedures, Primary & Foreign Keys, Normalization
-</div>
-
-<div class="skill-box" onclick="toggleSkill('htmlcss')">HTML & CSS</div>
-<div id="htmlcss" class="skill-detail">
-HTML5 Structure, Forms, Semantic Tags, CSS Styling, Flexbox, Grid, Responsive Design
-</div>
-
-<div class="skill-box" onclick="toggleSkill('js')">JavaScript</div>
-<div id="js" class="skill-detail">
-Variables, Functions, DOM Manipulation, Events, ES6 Features, Fetch API Basics
-</div>
-
-<div class="skill-box" onclick="toggleSkill('react')">React</div>
-<div id="react" class="skill-detail">
-Components, Props, State, Hooks (useState, useEffect), Routing Basics
-</div>
-
-<div class="skill-box" onclick="toggleSkill('git')">Git & GitHub</div>
-<div id="git" class="skill-detail">
-Version Control, Repository Management, Commit, Push, Pull, Branching
-</div>
-
+    <div id="skill-content"></div>
 </section>
+
+<script>
+function showSkill(skill){
+
+let content = "";
+
+if(skill=="java"){
+content = "OOP Concepts, Collections, Exception Handling, Multithreading, File Handling, Streams API";
+}
+
+else if(skill=="spring"){
+content = "REST API, MVC, Dependency Injection, Spring Data JPA, CRUD Operations, Security Basics";
+}
+
+else if(skill=="hibernate"){
+content = "ORM Concept, Entity Mapping, HQL, CRUD Operations, OneToMany, ManyToOne Relationships";
+}
+
+else if(skill=="mysql"){
+content = "Tables, Joins, Queries, Stored Procedures, Primary & Foreign Keys, Normalization";
+}
+
+else if(skill=="html"){
+content = "HTML5 Structure, Forms, Semantic Tags, CSS Styling, Flexbox, Grid, Responsive Design";
+}
+
+else if(skill=="js"){
+content = "Variables, Functions, DOM Manipulation, Events, ES6 Features, Fetch API Basics";
+}
+
+else if(skill=="react"){
+content = "Components, Props, State, Hooks (useState, useEffect), Routing Basics";
+}
+
+else if(skill=="git"){
+content = "Version Control, Repository Management, Commit, Push, Pull, Branching";
+}
+
+document.getElementById("skill-content").innerHTML = content;
+
+}
+</script>
 <!-- Projects -->
 
 <section id="projects">
 
-<h1>Projects</h1>
+<h1 class="project-title">Projects</h1>
 
 <div class="project-box">
 
-<div class="project">
+    <div class="project-card">
 
-<h2>Amazon Clone</h2>
+        <h2>🛒 Amazon Clone</h2>
 
-<p>
+        <p>
+        Developed a full-stack E-Commerce application using Java, 
+        Spring Boot, Hibernate, MySQL, JSP and MVC architecture.
+        </p>
 
-Developed E-Commerce project using Java, Spring Boot,
-Hibernate, MySQL and JSP.
+        <h4>Features:</h4>
 
-</p>
+        <ul>
+            <li>User Authentication</li>
+            <li>Product Management</li>
+            <li>Cart System</li>
+            <li>CRUD Operations</li>
+            <li>Database Integration</li>
+        </ul>
 
-</div>
+        <div class="tech">
+            <span>Java</span>
+            <span>Spring Boot</span>
+            <span>Hibernate</span>
+            <span>MySQL</span>
+        </div>
 
-<div class="project">
+        <a href="#" class="btn">View Project</a>
 
-<h2>Portfolio Website</h2>
+    </div>
 
-<p>
 
-Created portfolio using Spring Boot, JSP and MySQL
-with contact management system.
+    <div class="project-card">
 
-</p>
+        <h2>💼 Portfolio Website</h2>
 
-</div>
+        <p>
+        Built a responsive personal portfolio website using 
+        Spring Boot, JSP, HTML, CSS and MySQL with dynamic contact management.
+        </p>
+
+        <h4>Features:</h4>
+
+        <ul>
+            <li>About Section</li>
+            <li>Skills Section</li>
+            <li>Contact Form</li>
+            <li>Admin Dashboard</li>
+            <li>Database Storage</li>
+        </ul>
+
+        <div class="tech">
+            <span>Spring Boot</span>
+            <span>JSP</span>
+            <span>MySQL</span>
+            <span>CSS</span>
+        </div>
+
+        <a href="#" class="btn">Live Demo</a>
+
+    </div>
 
 </div>
 
 </section>
-
 <!-- Education -->
 
 <section id="education">

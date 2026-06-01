@@ -149,114 +149,83 @@ line-height:35px;
 }
 /* Skills */
 
-.skills-container{
+#skills{
 text-align:center;
+padding:50px;
 }
 
-.skill-buttons{
-margin-bottom:30px;
-}
-
-.skill-buttons button{
-margin:10px;
+#skills button{
 padding:10px 20px;
+margin:8px;
 border:none;
-background:cyan;
-color:black;
-font-weight:bold;
+border-radius:8px;
 cursor:pointer;
-border-radius:5px;
+font-size:16px;
 }
 
-.skill-box{
-background:cyan;
-color:black;
-padding:15px;
-margin:10px auto;
-width:60%;
-cursor:pointer;
-font-weight:bold;
-border-radius:5px;
-text-align:center;
+#skill-content{
+margin-top:20px;
+padding:20px;
+width:70%;
+margin-left:auto;
+margin-right:auto;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+font-size:18px;
 }
-
-.skill-detail{
-display:none;
-background:#222;
-color:white;
-padding:15px;
-margin:0 auto 10px;
-width:60%;
-border-radius:5px;
-text-align:left;
-}
-.skill-box h2{
-color:cyan;
-}
-.skill:hover{
-
-transform:translateY(-5px);
-
-}
-
 /* Projects */
 
+#projects{
+padding:60px;
+text-align:center;
+}
+
+.project-title{
+margin-bottom:40px;
+font-size:40px;
+}
+
 .project-box{
-
 display:flex;
-
 justify-content:center;
-
-gap:25px;
-
+gap:30px;
 flex-wrap:wrap;
-
 }
 
-.project{
-
-background:#222;
-
-padding:25px;
-
-width:320px;
-
-border-radius:10px;
-
-text-align:center;
-
-}
-
-.project h2{
-
-margin-bottom:15px;
-
-color:cyan;
-
-}
-
-/* Contact */
-
-#contact{
-
-text-align:center;
-
-}
-
-input, textarea{
-
+.project-card{
 width:350px;
-
-padding:12px;
-
-margin:10px;
-
-border:none;
-
-border-radius:5px;
-
+padding:25px;
+border-radius:15px;
+box-shadow:0 0 15px lightgray;
+transition:0.3s;
+text-align:left;
 }
 
+.project-card:hover{
+transform:translateY(-10px);
+}
+
+.project-card ul{
+padding-left:20px;
+}
+
+.tech span{
+display:inline-block;
+padding:6px 12px;
+margin:5px;
+border-radius:20px;
+background:#e6e6e6;
+}
+
+.btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 20px;
+text-decoration:none;
+border-radius:8px;
+background:black;
+color:white;
+}
 textarea{
 
 resize:none;
